@@ -1,0 +1,33 @@
+<app-search-bar></app-search-bar>
+<app-loader [loading]="!movies"></app-loader>
+
+
+<div class="ngmp-main-container">
+
+    <div *ngIf="movies" class="ngmp-movies-container">
+        <div class="ngmp-movies-list-header">
+            <span class="ngmp-movies-count">
+                {{movies.length}} Movies
+            </span>
+            <div class="ngmp-movies-sort">
+                SORT BY:
+                <select [(ngModel)]="sortBy">
+                    <option value="rate">Rate</option>
+                    <option value="id">Lastest</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="ngmp-movies-list">
+            <div *ngFor="let movie of movies" class="ngmp-movie">
+                <a [routerLink]="">
+                    <figure>
+                        <img src="{{movie.Poster}}" alt="movie poster">
+                    </figure>
+                    <h3 class="ngmp-movie-title">{{movie.Title}}</h3>
+                    <p class="ngmp-movie-rate">{{movie.Year}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

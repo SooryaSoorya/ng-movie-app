@@ -1,0 +1,42 @@
+@import "variables";
+
+.ngmp-search-bar {
+  position: relative;
+
+  input {
+    display: block;
+    width: 100%;
+    background-color: darken($primary-color, 4);
+    border: 1px solid darken($primary-color, 4);
+    color: $primary-title;
+    padding: 1.5em;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding-left: 4em;
+
+    &::-webkit-input-placeholder {
+      color: $primary-color-light;
+    }
+
+    &:-ms-input-placeholder {
+      color: $primary-color-light;
+    }
+
+    &::placeholder {
+      color: $primary-color-light;
+    }
+
+    &:focus {
+      outline: none !important;
+      border: 1px solid $primary-color-light;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: calc(50% - 1em);
+    left: 1em;
+    width: 2em;
+  }
+}
