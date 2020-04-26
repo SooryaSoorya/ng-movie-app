@@ -1,0 +1,54 @@
+<app-loader [loading]="loading"></app-loader>
+
+<div class="ngmp-movie-details-container" *ngIf="movie" [@simpleFadeAnimation]="'in'">
+    <div class="ngmp-movie-cover">
+        <img src="{{movie.Poster}}" alt="movie cover">
+    </div>
+    <div class="ngmp-movie-details">
+        <div class="ngmp-movie-poster">
+            <img src="{{movie.Poster}}" alt="movie poster">
+        </div>
+        <div class="ngmp-movie-contents">
+            <h2>{{movie.Title}}</h2>
+            <div class="ngmp-movie-info">
+                <div class="ngmp-movie-rate">
+                    <span>
+                        <img class="ngmp-star-img" src="assets/icons/star.svg" alt="movie poster">
+                        <strong>{{movie.imdbRating}}</strong>
+                    </span>
+                </div>
+                <div class="ngmp-movie-duration">
+                    <span><img class="ngmp-duration-img" src="assets/icons/duration.svg" alt="movie poster">
+                        <strong>{{movie.Runtime}}</strong>
+                    </span>
+                </div>
+                <div class="ngmp-movie-rating-container">
+                    <strong>Ratings:</strong>
+                    <a *ngFor="let rating of movie.Ratings">
+                        {{rating.Source}}
+                        {{rating.Value}}
+                    </a>
+                </div>
+            </div>
+            <div class="ngmp-movie-info">
+                <div class="ngmp-movie-rating-container">
+                    <a *ngFor="let genre of movie.Genre.split(',')">
+                        {{genre}}
+                    </a>
+                </div>
+            </div>
+    
+            <p class="ngmp-movie-plot">
+                <img class="ngmp-plot-img" src="assets/icons/plot.svg" alt="movie poster">
+                {{movie.Plot}}
+            </p>
+            <div class="ngmp-movie-info"> 
+                <a *ngFor="let actor of movie.Actors.split(',')" class="ngma-actor-details">
+                    <div class="icon-container avatar" style="background-image: url('assets/icons/avatar.svg');">
+                    </div>
+                    <h3 class="ngma-actorname"> {{actor}}</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

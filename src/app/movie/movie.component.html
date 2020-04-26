@@ -1,10 +1,8 @@
-<app-search-bar></app-search-bar>
-<app-loader [loading]="!movies"></app-loader>
-
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
+<app-loader [loading]="loading"></app-loader>
 
 <div class="ngmp-main-container">
-
-    <div *ngIf="movies" class="ngmp-movies-container">
+    <div *ngIf="movies; else elseBlock" class="ngmp-movies-container">
         <div class="ngmp-movies-list-header">
             <span class="ngmp-movies-count">
                 {{movies.length}} Movies
@@ -20,14 +18,23 @@
         <hr>
         <div class="ngmp-movies-list">
             <div *ngFor="let movie of movies" class="ngmp-movie">
-                <a [routerLink]="">
+                <a [routerLink]="['/movies/' + movie.Type + '/' + movie.imdbID]">
+                    <!-- <div *ngIf="movie.Poster=== MOVIE_PROPS.NO_IMG_URL || null;  else imageDiv"
+                        class="ngmp-noimageposter ">No image
+                        found</div>
+                    <ng-template #imageDIv> -->
                     <figure>
-                        <img src="{{movie.Poster}}" alt="movie poster">
+                        <img src="{{movie.Poster}}" alt="movie poster" class="ngmp-poster">
                     </figure>
+                    <!-- </ng-template> -->
+
                     <h3 class="ngmp-movie-title">{{movie.Title}}</h3>
                     <p class="ngmp-movie-rate">{{movie.Year}}</p>
                 </a>
             </div>
         </div>
     </div>
+    <ng-template #elseBlock>
+        <app-no-data></app-no-data>
+    </ng-template>
 </div>

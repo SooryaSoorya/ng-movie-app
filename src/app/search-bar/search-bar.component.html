@@ -1,4 +1,5 @@
 <div class="ngmp-search-bar">
     <img src="assets/icons/search.svg" alt="search icon">
-    <input [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search">
+    <input [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search"
+        (keyup.enter)="onEnter()">
 </div>

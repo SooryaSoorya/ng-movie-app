@@ -6,7 +6,7 @@
   input {
     display: block;
     width: 100%;
-    background-color: darken($primary-color, 4);
+    background-color: darken($primary-color, 4) !important;
     border: 1px solid darken($primary-color, 4);
     color: $primary-title;
     padding: 1.5em;
@@ -35,8 +35,9 @@
 
   img {
     position: absolute;
-    top: calc(50% - 1em);
+    top: calc(50% - 1.4em);
     left: 1em;
-    width: 2em;
+    width: 4rem;
+    height: 60px;
   }
 }

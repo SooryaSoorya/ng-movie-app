@@ -8,11 +8,19 @@ import { MovieRoutingModule } from "./movie-routing.module";
 import { MovieComponent } from "./movie.component";
 import { SearchBarComponent } from "../search-bar/search-bar.component";
 import { LoaderComponent } from "../loader/loader.component";
+import { MovieDetailComponent } from "../movie-detail/movie-detail.component";
+import { NoDataComponent } from "../no-data/no-data.component";
 
 import { MovieService } from "./services/movie.services";
 
 @NgModule({
-  declarations: [MovieComponent, SearchBarComponent, LoaderComponent],
+  declarations: [
+    MovieComponent,
+    SearchBarComponent,
+    LoaderComponent,
+    MovieDetailComponent,
+    NoDataComponent
+  ],
   imports: [CommonModule, MovieRoutingModule, FormsModule, HttpClientModule],
   providers: [HttpClientModule, MovieService],
 })
