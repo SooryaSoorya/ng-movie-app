@@ -22,20 +22,22 @@ export class MovieService {
     );
   }
 
-  getMovieById(id: number): Observable<Movie> {
-    const url = `${this.moviesEndpoint}/${id}`;
-    return this.http.get<Movie>(url).pipe(
-      tap((_) => console.log(`fetched movie with id=${id}`)),
-      catchError(this.handleError<Movie>(`getMovie id=${id}`))
+  getMovieByTitle(title: string): Observable<Movie> {
+    var url: string = `${this.moviesEndpoint}&s=${title}`;
+    return this.http.get(url).pipe(
+      map((res: any) => res.Search),
+      catchError(this.handleError("getMovieByTitle", []))
     );
   }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
+  getMovieById(id: string): Observable<Movie> {
+    var url: string = `${this.moviesEndpoint}&i=${id}&plot=full`;
+    return this.http.get(url).pipe(
+      map((res: any) => res),
+      catchError(this.handleError("getMovieByTitle", []))
+    );
+  }
+
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
       console.log(`${operation} failed: ${error.message}`);

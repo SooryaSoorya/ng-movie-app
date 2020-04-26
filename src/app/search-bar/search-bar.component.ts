@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
+import { MovieService } from "../movie/services/movie.services";
+import { Movie } from "../movie/models/movie.models";
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  selector: "app-search-bar",
+  templateUrl: "./search-bar.component.html",
+  styleUrls: ["./search-bar.component.scss"],
 })
 export class SearchBarComponent implements OnInit {
-  searchText: any = '';
-  constructor() { }
+  searchText: any = "";
+  public movies :any;
+  @Output() search = new EventEmitter<Movie>();
+  constructor(private movieService: MovieService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onEnter() {
+    this.movieService.getMovieByTitle(this.searchText).subscribe((movies) => {
+      console.log(movies);
+      this.search.emit(movies);
+    });
   }
-
 }
