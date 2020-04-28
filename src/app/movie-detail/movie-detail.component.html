@@ -1,9 +1,9 @@
 <app-loader [loading]="loading"></app-loader>
 
 <div class="ngmp-movie-details-container" *ngIf="movie" [@simpleFadeAnimation]="'in'">
-    <div class="ngmp-movie-cover">
-        <img src="{{movie.Poster}}" alt="movie cover">
-    </div>
+        <div *ngIf="(movie.Poster !== MOVIE_PROPS.NO_IMG_URL || null)" class="ngmp-movie-cover">
+            <img src="{{movie.Poster}}" alt="movie cover">
+        </div>
     <div class="ngmp-movie-details">
         <div class="ngmp-movie-poster">
             <img src="{{movie.Poster}}" alt="movie poster">
@@ -12,15 +12,15 @@
             <h2>{{movie.Title}}</h2>
             <div class="ngmp-movie-info">
                 <div class="ngmp-movie-rate">
-                    <span>
+                    <a>
                         <img class="ngmp-star-img" src="assets/icons/star.svg" alt="movie poster">
                         <strong>{{movie.imdbRating}}</strong>
-                    </span>
+                    </a>
                 </div>
                 <div class="ngmp-movie-duration">
-                    <span><img class="ngmp-duration-img" src="assets/icons/duration.svg" alt="movie poster">
+                    <a><img class="ngmp-duration-img" src="assets/icons/duration.svg" alt="movie poster">
                         <strong>{{movie.Runtime}}</strong>
-                    </span>
+                    </a>
                 </div>
                 <div class="ngmp-movie-rating-container">
                     <strong>Ratings:</strong>
@@ -37,14 +37,21 @@
                     </a>
                 </div>
             </div>
-    
+
             <p class="ngmp-movie-plot">
                 <img class="ngmp-plot-img" src="assets/icons/plot.svg" alt="movie poster">
                 {{movie.Plot}}
             </p>
-            <div class="ngmp-movie-info"> 
+            <div class="ngmp-movie-info">
+                <a class="ngma-actor-details">
+                    <div class="ngma-icon-container ngma-avatar"
+                        style="background-image: url('assets/icons/director.svg');">
+                    </div>
+                    <h3 class="ngma-actorname">{{movie.Director}}</h3>
+                </a>
                 <a *ngFor="let actor of movie.Actors.split(',')" class="ngma-actor-details">
-                    <div class="icon-container avatar" style="background-image: url('assets/icons/avatar.svg');">
+                    <div class="ngma-icon-container ngma-avatar"
+                        style="background-image: url('assets/icons/avatar.svg');">
                     </div>
                     <h3 class="ngma-actorname"> {{actor}}</h3>
                 </a>

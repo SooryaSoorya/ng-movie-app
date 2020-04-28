@@ -1,20 +1,28 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe('AppComponent', () => {
+import { AppComponent } from "./app.component";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { MovieService } from "../app/movie/services/movie.services";
+
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent, SidebarComponent],
+      providers: [MovieService],
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
@@ -23,13 +31,6 @@ describe('AppComponent', () => {
   it(`should have as title 'ng-movie-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-movie-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-movie-app app is running!');
+    expect(app.title).toEqual("ng-movie-app");
   });
 });

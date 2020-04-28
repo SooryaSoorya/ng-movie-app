@@ -1,4 +1,5 @@
-<app-search-bar (search)="onSearch($event)"></app-search-bar>
+<app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+<app-nav-menu (onNavMenuChange)="onNavMenuChange($event)" (showLoading)="showLoading($event)"></app-nav-menu>
 <app-loader [loading]="loading"></app-loader>
 
 <div class="ngmp-main-container">
@@ -19,17 +20,20 @@
         <div class="ngmp-movies-list">
             <div *ngFor="let movie of movies" class="ngmp-movie">
                 <a [routerLink]="['/movies/' + movie.Type + '/' + movie.imdbID]">
-                    <!-- <div *ngIf="movie.Poster=== MOVIE_PROPS.NO_IMG_URL || null;  else imageDiv"
-                        class="ngmp-noimageposter ">No image
-                        found</div>
-                    <ng-template #imageDIv> -->
-                    <figure>
-                        <img src="{{movie.Poster}}" alt="movie poster" class="ngmp-poster">
-                    </figure>
-                    <!-- </ng-template> -->
+                    <div *ngIf="(movie.Poster === MOVIE_PROPS.NO_IMG_URL || null);  else elseBlock"
+                        class="ngmp-noimageposter">
+                        <img src="assets/icons/notfound.svg" alt="search icon" class="ngmp-noimage">
+                    </div>
+                    <ng-template #elseBlock>
+                        <figure>
+                            <img src="{{movie.Poster}}" alt="movie poster" class="ngmp-poster">
+                        </figure>
+                    </ng-template>
 
                     <h3 class="ngmp-movie-title">{{movie.Title}}</h3>
-                    <p class="ngmp-movie-rate">{{movie.Year}}</p>
+                    <p class="ngmp-movie-year">
+                        <img src="assets/icons/star.svg" alt="movie poster" class="ngma-rateimg">
+                        {{movie.Year}}</p>
                 </a>
             </div>
         </div>

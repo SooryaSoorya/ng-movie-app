@@ -15,7 +15,7 @@ export class MovieService {
   constructor(private http: HttpClient) {}
 
   getMovies() {
-    var url: string = `${this.moviesEndpoint}&s=people`;
+    var url: string = `${this.moviesEndpoint}&s=avenger`;
     return this.http.get(url).pipe(
       map((res: any) => res.Search),
       catchError(this.handleError("getMovies", []))

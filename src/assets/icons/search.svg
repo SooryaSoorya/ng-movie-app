@@ -8,7 +8,7 @@
       }
 
       .fil0 {
-        fill: #ED671E;
+        fill: #f39a69;
         fill-rule: nonzero
       }
     </style>
