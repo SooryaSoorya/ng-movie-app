@@ -1,17 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-import { SearchBarComponent } from './search-bar.component';
+import { SearchBarComponent } from "./search-bar.component";
+import { MovieService } from "../movie/services/movie.services";
 
-describe('SearchBarComponent', () => {
+describe("SearchBarComponent", () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
 
-  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [SearchBarComponent],
+      providers: [MovieService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,7 +22,7 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

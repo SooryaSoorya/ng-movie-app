@@ -6,31 +6,31 @@
   flex-direction: column;
 }
 
-.ngmp-main-container {
+.ngma-main-container {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
 }
 
-.ngmp-movies-container {
+.ngma-movies-container {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
   max-height: 100vh;
 
-  .ngmp-movies-list-header {
+  .ngma-movies-list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     padding: 1em;
 
-    .ngmp-movies-count {
+    .ngma-movies-count {
       color: $secondary-title;
     }
 
-    .ngmp-movies-sort {
+    .ngma-movies-sort {
       color: $primary-title;
       padding-right: 1em;
       font-size: 0.8em;
@@ -53,7 +53,7 @@
     opacity: 0.6;
   }
 
-  .ngmp-movies-list {
+  .ngma-movies-list {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -61,7 +61,7 @@
     padding: 1em;
   }
 
-  .ngmp-movie {
+  .ngma-movie {
     margin-bottom: 1em;
     flex-basis: 25%;
 
@@ -75,7 +75,7 @@
       &:hover {
         opacity: 0.7;
 
-        .ngmp-poster {
+        .ngma-poster {
           transform: scale(1.05);
         }
       }
@@ -87,18 +87,18 @@
       }
     }
 
-    .ngmp-poster {
+    .ngma-poster {
       transition: all 0.2s;
       display: block;
     }
 
-    .ngmp-movie-title,
-    .ngmp-movie-year {
+    .ngma-movie-title,
+    .ngma-movie-year {
       text-decoration: none;
       display: inline-block;
     }
 
-    .ngmp-movie-title {
+    .ngma-movie-title {
       color: $orange;
       margin: 15px 0 5px 42px;
       overflow: hidden;
@@ -107,7 +107,7 @@
       width: 300px;
     }
 
-    .ngmp-movie-year {
+    .ngma-movie-year {
       color: $grey;
       margin: 0;
       margin-left: 70px;
@@ -119,11 +119,11 @@
       margin-top: 0px;
       margin-left: -30px;
     }
-    .ngmp-noimageposter {
+    .ngma-noimageposter {
       text-align: center;
       height: 100px;
     }
-    .ngmp-noimage {
+    .ngma-noimage {
       text-align: center;
       height: 100px;
       margin-right: 100px;
@@ -170,13 +170,13 @@
         &:hover {
           opacity: 0.7;
 
-          .ngmp-poster {
+          .ngma-poster {
             transform: scale(1.05);
           }
         }
       }
 
-      .ngmp-poster {
+      .ngma-poster {
         transition: all 0.2s;
         display: block;
       }

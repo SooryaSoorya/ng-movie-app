@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { NavMenuComponent } from './nav-menu.component';
+import { MovieService } from "../movie/services/movie.services";
 
 describe('NavMenuComponent', () => {
   let component: NavMenuComponent;
@@ -8,7 +10,9 @@ describe('NavMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavMenuComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ NavMenuComponent ],
+      providers: [MovieService]
     })
     .compileComponents();
   }));

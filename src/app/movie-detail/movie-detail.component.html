@@ -1,28 +1,28 @@
 <app-loader [loading]="loading"></app-loader>
 
-<div class="ngmp-movie-details-container" *ngIf="movie" [@simpleFadeAnimation]="'in'">
-        <div *ngIf="(movie.Poster !== MOVIE_PROPS.NO_IMG_URL || null)" class="ngmp-movie-cover">
+<div class="ngma-movie-details-container" *ngIf="movie" [@simpleFadeAnimation]="'in'">
+        <div *ngIf="(movie.Poster !== MOVIE_PROPS.NO_IMG_URL || null)" class="ngma-movie-cover">
             <img src="{{movie.Poster}}" alt="movie cover">
         </div>
-    <div class="ngmp-movie-details">
-        <div class="ngmp-movie-poster">
+    <div class="ngma-movie-details">
+        <div class="ngma-movie-poster">
             <img src="{{movie.Poster}}" alt="movie poster">
         </div>
-        <div class="ngmp-movie-contents">
+        <div class="ngma-movie-contents">
             <h2>{{movie.Title}}</h2>
-            <div class="ngmp-movie-info">
-                <div class="ngmp-movie-rate">
+            <div class="ngma-movie-info">
+                <div class="ngma-movie-rate">
                     <a>
-                        <img class="ngmp-star-img" src="assets/icons/star.svg" alt="movie poster">
+                        <img class="ngma-star-img" src="assets/icons/star.svg" alt="movie poster">
                         <strong>{{movie.imdbRating}}</strong>
                     </a>
                 </div>
-                <div class="ngmp-movie-duration">
-                    <a><img class="ngmp-duration-img" src="assets/icons/duration.svg" alt="movie poster">
+                <div class="ngma-movie-duration">
+                    <a><img class="ngma-duration-img" src="assets/icons/duration.svg" alt="movie poster">
                         <strong>{{movie.Runtime}}</strong>
                     </a>
                 </div>
-                <div class="ngmp-movie-rating-container">
+                <div class="ngma-movie-rating-container">
                     <strong>Ratings:</strong>
                     <a *ngFor="let rating of movie.Ratings">
                         {{rating.Source}}
@@ -30,19 +30,19 @@
                     </a>
                 </div>
             </div>
-            <div class="ngmp-movie-info">
-                <div class="ngmp-movie-rating-container">
+            <div class="ngma-movie-info">
+                <div class="ngma-movie-rating-container">
                     <a *ngFor="let genre of movie.Genre.split(',')">
                         {{genre}}
                     </a>
                 </div>
             </div>
 
-            <p class="ngmp-movie-plot">
-                <img class="ngmp-plot-img" src="assets/icons/plot.svg" alt="movie poster">
+            <p class="ngma-movie-plot">
+                <img class="ngma-plot-img" src="assets/icons/plot.svg" alt="movie poster">
                 {{movie.Plot}}
             </p>
-            <div class="ngmp-movie-info">
+            <div class="ngma-movie-info">
                 <a class="ngma-actor-details">
                     <div class="ngma-icon-container ngma-avatar"
                         style="background-image: url('assets/icons/director.svg');">
