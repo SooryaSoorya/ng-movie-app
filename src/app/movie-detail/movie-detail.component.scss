@@ -1,10 +1,10 @@
 @import "variables";
 
-.ngmp-movie-details-container {
+.ngma-movie-details-container {
   width: 100%;
 }
 
-.ngmp-movie-cover {
+.ngma-movie-cover {
   position: relative;
   max-height: 25em;
   overflow: hidden;
@@ -42,7 +42,7 @@
   }
 }
 
-.ngmp-movie-details {
+.ngma-movie-details {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -51,7 +51,7 @@
   transform: translateY(-4em);
 }
 
-.ngmp-movie-contents {
+.ngma-movie-contents {
   padding: 0 1em;
   color: darken($light, 35);
 
@@ -61,7 +61,7 @@
     font-size: 44px;
   }
 
-  .ngmp-movie-info {
+  .ngma-movie-info {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -102,7 +102,7 @@
     }
   }
 
-  .ngmp-movie-rating-container {
+  .ngma-movie-rating-container {
     a {
       margin-left: 0.5em;
       background-color: $secondary-color;
@@ -113,26 +113,26 @@
     }
   }
 
-  .ngmp-movie-plot {
+  .ngma-movie-plot {
     max-width: 70%;
     line-height: 1.8;
   }
 
-  .ngmp-plot-img {
+  .ngma-plot-img {
     top: 10px;
     position: relative;
     height: 25px;
     width: 25px;
   }
 
-  .ngmp-star-img {
+  .ngma-star-img {
     top: 5px;
     position: relative;
     height: 25px;
     width: 25px;
   }
 
-  .ngmp-duration-img {
+  .ngma-duration-img {
     top: 10px;
     position: relative;
     height: 20px;
@@ -140,15 +140,15 @@
 }
 
 @media only screen and (max-width: 48em) {
-  .ngmp-movie-details {
+  .ngma-movie-details {
     flex-direction: column-reverse;
     transform: translateY(0);
     padding: 0 0.5em;
 
-    .ngmp-movie-poster {
+    .ngma-movie-poster {
       padding: 0 1em;
     }
-    .ngmp-movie-info {
+    .ngma-movie-info {
       display: block;
       div {
         flex-direction: column;
@@ -160,14 +160,14 @@
         margin-bottom: 1em;
       }
     }
-    .ngmp-movie-rating-container {
+    .ngma-movie-rating-container {
       flex-direction: column;
       span {
         display: block;
         margin-bottom: 1em;
       }
     }
-    .ngmp-movie-plot {
+    .ngma-movie-plot {
       max-width: 100%;
     }
   }

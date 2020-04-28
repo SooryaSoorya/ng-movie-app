@@ -1,17 +1,26 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ActivatedRoute } from "@angular/router";
 
-import { MovieDetailComponent } from './movie-detail.component';
+import { MovieDetailComponent } from "./movie-detail.component";
+import { MovieService } from "../movie/services/movie.services";
 
-describe('MovieDetailComponent', () => {
+describe("MovieDetailComponent", () => {
   let component: MovieDetailComponent;
   let fixture: ComponentFixture<MovieDetailComponent>;
-  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieDetailComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [MovieDetailComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { params: { id: 1 } } },
+        },
+        MovieService,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,7 +29,7 @@ describe('MovieDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
