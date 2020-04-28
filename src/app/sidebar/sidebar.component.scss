@@ -3,6 +3,7 @@
 .ngma-sidebar {
   width: 100px;
   height: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
