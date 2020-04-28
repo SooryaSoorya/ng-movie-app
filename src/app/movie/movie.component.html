@@ -8,18 +8,19 @@
             <span class="ngmp-movies-count">
                 {{movies.length}} Movies
             </span>
-            <div class="ngmp-movies-sort">
-                SORT BY:
-                <select [(ngModel)]="sortBy">
-                    <option value="rate">Rate</option>
-                    <option value="id">Lastest</option>
+            <div class="ngmp-movies-sort"> Sort By:
+                <select [(ngModel)]="sortBy" (change)="sortMovies()">
+                    <option selected="true" disabled="disabled">Select</option>
+                    <option value="Title">Title</option>
+                    <option value="Year">Lastest</option>
                 </select>
             </div>
         </div>
         <hr>
         <div class="ngmp-movies-list">
             <div *ngFor="let movie of movies" class="ngmp-movie">
-                <a [routerLink]="['/movies/' + movie.Type + '/' + movie.imdbID]">
+                <a
+                    [routerLink]="(movie.Poster === MOVIE_PROPS.NO_IMG_URL || null)? ['..'] :['/movies/' + movie.Type + '/' + movie.imdbID]">
                     <div *ngIf="(movie.Poster === MOVIE_PROPS.NO_IMG_URL || null);  else elseBlock"
                         class="ngmp-noimageposter">
                         <img src="assets/icons/notfound.svg" alt="search icon" class="ngmp-noimage">
@@ -31,9 +32,10 @@
                     </ng-template>
 
                     <h3 class="ngmp-movie-title">{{movie.Title}}</h3>
-                    <p class="ngmp-movie-year">
-                        <img src="assets/icons/star.svg" alt="movie poster" class="ngma-rateimg">
-                        {{movie.Year}}</p>
+                    <div class="ngmp-movie-year">
+                        <img src="assets/icons/calender.svg" alt="movie poster" class="ngma-rateimg">
+                        {{movie.Year}}
+                    </div>
                 </a>
             </div>
         </div>

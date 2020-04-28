@@ -110,12 +110,14 @@
     .ngmp-movie-year {
       color: $grey;
       margin: 0;
-      margin-left: 34px;
+      margin-left: 70px;
     }
     .ngma-rateimg {
-      height: 16px;
-      position: relative;
+      height: 27px;
+      position: absolute;
       width: 25px;
+      margin-top: 0px;
+      margin-left: -30px;
     }
     .ngmp-noimageposter {
       text-align: center;
