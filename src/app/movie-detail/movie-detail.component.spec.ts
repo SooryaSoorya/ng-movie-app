@@ -5,6 +5,7 @@ import { MovieDetailComponent } from './movie-detail.component';
 describe('MovieDetailComponent', () => {
   let component: MovieDetailComponent;
   let fixture: ComponentFixture<MovieDetailComponent>;
+  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

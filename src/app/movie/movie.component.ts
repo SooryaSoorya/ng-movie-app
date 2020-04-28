@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from "@angular/router";
 
-import { Movie } from "./models/movie.models";
 import { MovieService } from "./services/movie.services";
-
+import { Movie } from "./models/movie.models";
 import { MOVIE_PROPS } from "../shared/constants";
 
 @Component({
@@ -25,7 +24,6 @@ export class MovieComponent implements OnInit {
     movieService.getMovies().subscribe(
       (movies) => {
         this.movies = movies;
-        this.l("getMovies", movies);
         this.loading = false;
       },
       (error) => (this.loading = false)
@@ -36,5 +34,14 @@ export class MovieComponent implements OnInit {
 
   onSearch(movies: Movie[]) {
     this.movies = movies;
+  }
+
+  onNavMenuChange(movies: Movie[]) {
+    console.log("onNavMenuChange", movies);
+    this.movies = movies;
+  }
+
+  showLoading(loading: boolean) {
+    this.loading = loading;
   }
 }

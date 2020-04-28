@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 import { MovieService } from "../movie/services/movie.services";
+
 import { Movie } from "../movie/models/movie.models";
 @Component({
   selector: "app-search-bar",
@@ -9,16 +10,15 @@ import { Movie } from "../movie/models/movie.models";
 })
 export class SearchBarComponent implements OnInit {
   searchText: any = "";
-  public movies :any;
-  @Output() search = new EventEmitter<Movie>();
+  public movies: any;
+  @Output() onSearch = new EventEmitter<Movie>();
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {}
 
   onEnter() {
     this.movieService.getMovieByTitle(this.searchText).subscribe((movies) => {
-      console.log(movies);
-      this.search.emit(movies);
+      this.onSearch.emit(movies);
     });
   }
 }

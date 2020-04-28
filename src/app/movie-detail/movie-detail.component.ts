@@ -5,6 +5,7 @@ import { Movie } from "../movie/models/movie.models";
 import { MovieService } from "../movie/services/movie.services";
 import { FadeIn } from "../shared/animation";
 
+import { MOVIE_PROPS } from "../shared/constants";
 @Component({
   selector: "app-movie-detail",
   templateUrl: "./movie-detail.component.html",
@@ -15,6 +16,7 @@ export class MovieDetailComponent implements OnInit {
   public loading: boolean;
   public movie: any;
   public error: string = "";
+  public MOVIE_PROPS = MOVIE_PROPS;
 
   constructor(
     private movieService: MovieService,

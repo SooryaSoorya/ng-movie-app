@@ -1,11 +1,10 @@
-@import 'variables';
+@import "variables";
 
 :host {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
 }
-
 
 .ngmp-main-container {
   display: flex;
@@ -63,7 +62,7 @@
   }
 
   .ngmp-movie {
-    margin-bottom: 1.8em;
+    margin-bottom: 1em;
     flex-basis: 25%;
 
     a {
@@ -82,9 +81,9 @@
       }
 
       img {
-        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0px 0px 10px 0px $shadow;
+        -moz-box-shadow: 0px 0px 10px 0px $shadow;
+        box-shadow: 0px 0px 10px 0px $shadow;
       }
     }
 
@@ -94,13 +93,13 @@
     }
 
     .ngmp-movie-title,
-    .ngmp-movie-rate {
-      display: block;
-      // margin-top: 0.3em;
+    .ngmp-movie-year {
+      text-decoration: none;
+      display: inline-block;
     }
 
     .ngmp-movie-title {
-      color: $green;
+      color: $orange;
       margin: 15px 0 5px 42px;
       overflow: hidden;
       white-space: nowrap;
@@ -108,19 +107,29 @@
       width: 300px;
     }
 
-    .ngmp-movie-rate {
+    .ngmp-movie-year {
       color: $grey;
       margin: 0;
-      margin-left: 42px;
+      margin-left: 34px;
     }
-
+    .ngma-rateimg {
+      height: 16px;
+      position: relative;
+      width: 25px;
+    }
     .ngmp-noimageposter {
-text-align: center;
+      text-align: center;
+      height: 100px;
+    }
+    .ngmp-noimage {
+      text-align: center;
+      height: 100px;
+      margin-right: 100px;
     }
   }
 }
 
-@media only screen and (max-width : 48em) {
+@media only screen and (max-width: 48em) {
   .main-container {
     flex-direction: column;
 
@@ -172,3 +181,4 @@ text-align: center;
     }
   }
 }
+

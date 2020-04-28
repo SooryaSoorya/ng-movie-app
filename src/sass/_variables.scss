@@ -1,16 +1,17 @@
-$green: #ED671E;
+$orange: #ED671E;
 $grey: #f3f3f3;
 $blue: #25282d;
 $lightBlue: #00B5E9;
 $light: #ffffff;
 $dark: #000000;
 $yellow: #FFB11A;
+$shadow: rgba(0, 0, 0, 0.5);
 
 
 $primary-color: $blue;
 $primary-color-dark: darken($primary-color, 8);
 $primary-color-light: lighten($primary-color, 10);
-$secondary-color: $green;
+$secondary-color: $orange;
 
 $primary-link: $blue;
 $secondary-link: $lightBlue;
