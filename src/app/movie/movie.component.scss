@@ -6,6 +6,9 @@
   flex-direction: column;
 }
 
+.ngma-movie {
+  margin-left: 100px;
+}
 .ngma-main-container {
   display: flex;
   justify-content: flex-start;
@@ -132,27 +135,15 @@
 }
 
 @media only screen and (max-width: 48em) {
+  .ngma-movie {
+    margin-left: 50px;
+  }
+
+  .ngma-movies-sort {
+    flex-direction: column;
+  }
   .main-container {
     flex-direction: column;
-
-    .genres-list {
-      width: 100%;
-      height: auto;
-      padding: 0.8em;
-    }
-
-    .genre-list-items {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      margin: 0;
-
-      li {
-        margin-right: 1em;
-      }
-    }
 
     .movies-container {
       width: 100%;
