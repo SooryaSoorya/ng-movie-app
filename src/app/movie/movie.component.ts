@@ -16,7 +16,7 @@ export class MovieComponent implements OnInit {
   public MOVIE_PROPS = MOVIE_PROPS;
   public loading: boolean;
 
-  sortBy: any = "id";
+  sortBy: any = "Select";
   public l = console.log;
 
   constructor(private movieService: MovieService) {
@@ -43,5 +43,20 @@ export class MovieComponent implements OnInit {
 
   showLoading(loading: boolean) {
     this.loading = loading;
+  }
+
+  sortMovies() {
+    this.loading = true;
+    const sortValue = this.sortBy;
+    this.movies.sort((a: any, b: any) => {
+      if (a[sortValue] > b[sortValue]) {
+        return -1;
+      } else if (a[sortValue] < b[sortValue]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    this.loading = false;
   }
 }
