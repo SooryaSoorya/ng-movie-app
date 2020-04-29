@@ -42,7 +42,6 @@ describe("NavMenuComponent", () => {
       preventDefault: function () {},
       target: { innerText: "Action" },
     };
-    console.log("ElementRef", event);
     const { build } = setup().default();
     const c = build();
     fixture.detectChanges();
