@@ -2,7 +2,7 @@
     <nav class="ngma-navigation">
         <ul>
             <li *ngFor="let genre of objectKeys(movieGenre)">
-                <a [ngClass]="{'active': genre.toLowerCase() == selectedGenre}" (click)="changeMenuItem($event)"
+                <a class="ngma-menugenre" [ngClass]="{'active': genre.toLowerCase() == selectedGenre}" (click)="changeMenuItem($event)"
                     href="#">
                     {{genre}}
                 </a>

@@ -37,11 +37,10 @@ export class MovieComponent implements OnInit {
   }
 
   onNavMenuChange(movies: Movie[]) {
-    console.log("onNavMenuChange", movies);
     this.movies = movies;
   }
 
-  showLoading(loading: boolean) {
+  public showLoading(loading: boolean) {
     this.loading = loading;
   }
 
