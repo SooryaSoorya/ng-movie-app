@@ -17,7 +17,6 @@ export class MovieComponent implements OnInit {
   public loading: boolean;
 
   sortBy: any = "Select";
-  public l = console.log;
 
   constructor(private movieService: MovieService) {
     this.loading = true;
