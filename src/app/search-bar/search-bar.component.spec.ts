@@ -9,6 +9,7 @@ describe("SearchBarComponent", () => {
   let fixture: ComponentFixture<SearchBarComponent>;
 
   beforeEach(async(() => {
+    const a = setup().default();
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [SearchBarComponent],
@@ -25,4 +26,24 @@ describe("SearchBarComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+    it('when ngOnInit is called it should', () => {
+        const { build } = setup().default();
+        const c = build();
+        c.ngOnInit();
+    });
 });
+
+function setup() {
+  const httpClientSpy = jasmine.createSpyObj("HttpClient", ["get"]);
+  const movieService = new MovieService(<any>httpClientSpy);
+    const builder = {
+        movieService,
+        default() {
+            return builder;
+        },
+        build() {
+            return new SearchBarComponent(movieService);
+        }
+    }
+    return builder;
+}

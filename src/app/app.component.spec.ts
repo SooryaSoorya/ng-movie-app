@@ -10,6 +10,7 @@ import { MovieService } from "../app/movie/services/movie.services";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
+    const a = setup().default();
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
@@ -34,3 +35,15 @@ describe("AppComponent", () => {
     expect(app.title).toEqual("ng-movie-app");
   });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new AppComponent();
+        }
+    }
+    return builder;
+}
